@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		450D01A62404DFE300152EB8 /* DBYRoomStateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01A52404DFE300152EB8 /* DBYRoomStateController.m */; };
+		450D01A92404E03E00152EB8 /* DBYCourseListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01A82404E03E00152EB8 /* DBYCourseListController.m */; };
+		450D01AC2404E50E00152EB8 /* DBYCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01AB2404E50E00152EB8 /* DBYCourseCell.m */; };
+		450D01AF2404E84E00152EB8 /* DBYUrlController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 450D01AD2404E84E00152EB8 /* DBYUrlController.xib */; };
+		450D01B32404E8E600152EB8 /* DBYUrlController.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01B22404E8E600152EB8 /* DBYUrlController.m */; };
+		450D01B92404ECA200152EB8 /* DBYRoomStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01B82404ECA200152EB8 /* DBYRoomStateView.m */; };
+		450D01BC240504E700152EB8 /* DBYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01BB240504E700152EB8 /* DBYString.m */; };
+		450D01BF2405489C00152EB8 /* DBYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01BE2405489C00152EB8 /* DBYTheme.m */; };
+		450D01C324054D3A00152EB8 /* UIViewController+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 450D01C224054D3A00152EB8 /* UIViewController+Extention.m */; };
+		45C988832403C2820042914B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C988802403C2810042914B /* AppDelegate.m */; };
+		45C988842403C2820042914B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C988812403C2820042914B /* main.m */; };
+		45C988872403C3DC0042914B /* DBYInviteCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C988862403C3DC0042914B /* DBYInviteCodeController.m */; };
+		45F52FE723FFDB4200783610 /* test_courses.json in Resources */ = {isa = PBXBuildFile; fileRef = 45F52FDE23FFDB4200783610 /* test_courses.json */; };
+		45F52FE823FFDB4200783610 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F52FDF23FFDB4200783610 /* LaunchScreen.storyboard */; };
+		45F52FFD23FFE26B00783610 /* DBYCourseListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F52FEF23FFE26B00783610 /* DBYCourseListController.xib */; };
+		45F5300023FFE26B00783610 /* DBYInviteCodeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F52FF323FFE26B00783610 /* DBYInviteCodeController.xib */; };
+		45F5300123FFE26B00783610 /* DBYRoomStateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F52FF423FFE26B00783610 /* DBYRoomStateController.xib */; };
+		45F5300923FFE2AA00783610 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F5300823FFE2AA00783610 /* Assets.xcassets */; };
+		45F5301223FFE5C300783610 /* DBYRoomStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F5300E23FFE5C300783610 /* DBYRoomStateView.xib */; };
+		45F5301F23FFF45E00783610 /* DBYCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45F5301D23FFF45E00783610 /* DBYCourseCell.xib */; };
+		C703AAB9DFF708302C296C08 /* Pods_DBYSharedVideoDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87167527062766D5C2BE59E0 /* Pods_DBYSharedVideoDemo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		450D01A42404DFE300152EB8 /* DBYRoomStateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYRoomStateController.h; sourceTree = "<group>"; };
+		450D01A52404DFE300152EB8 /* DBYRoomStateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYRoomStateController.m; sourceTree = "<group>"; };
+		450D01A72404E03E00152EB8 /* DBYCourseListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBYCourseListController.h; sourceTree = "<group>"; };
+		450D01A82404E03E00152EB8 /* DBYCourseListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBYCourseListController.m; sourceTree = "<group>"; };
+		450D01AA2404E50E00152EB8 /* DBYCourseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYCourseCell.h; sourceTree = "<group>"; };
+		450D01AB2404E50E00152EB8 /* DBYCourseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYCourseCell.m; sourceTree = "<group>"; };
+		450D01AD2404E84E00152EB8 /* DBYUrlController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYUrlController.xib; sourceTree = "<group>"; };
+		450D01B12404E8E600152EB8 /* DBYUrlController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYUrlController.h; sourceTree = "<group>"; };
+		450D01B22404E8E600152EB8 /* DBYUrlController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYUrlController.m; sourceTree = "<group>"; };
+		450D01B72404ECA200152EB8 /* DBYRoomStateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYRoomStateView.h; sourceTree = "<group>"; };
+		450D01B82404ECA200152EB8 /* DBYRoomStateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYRoomStateView.m; sourceTree = "<group>"; };
+		450D01BA240504E700152EB8 /* DBYString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYString.h; sourceTree = "<group>"; };
+		450D01BB240504E700152EB8 /* DBYString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYString.m; sourceTree = "<group>"; };
+		450D01BD2405489C00152EB8 /* DBYTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYTheme.h; sourceTree = "<group>"; };
+		450D01BE2405489C00152EB8 /* DBYTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYTheme.m; sourceTree = "<group>"; };
+		450D01C124054D3A00152EB8 /* UIViewController+Extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extention.h"; sourceTree = "<group>"; };
+		450D01C224054D3A00152EB8 /* UIViewController+Extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extention.m"; sourceTree = "<group>"; };
+		455F7A2523728DB200DCDE1F /* 新版大班.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新版大班.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C988802403C2810042914B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		45C988812403C2820042914B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45C988822403C2820042914B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		45C988852403C3DC0042914B /* DBYInviteCodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBYInviteCodeController.h; sourceTree = "<group>"; };
+		45C988862403C3DC0042914B /* DBYInviteCodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBYInviteCodeController.m; sourceTree = "<group>"; };
+		45F52FDE23FFDB4200783610 /* test_courses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_courses.json; sourceTree = "<group>"; };
+		45F52FE023FFDB4200783610 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45F52FEB23FFDE0800783610 /* OCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCHeader.h; sourceTree = "<group>"; };
+		45F52FEF23FFE26B00783610 /* DBYCourseListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYCourseListController.xib; sourceTree = "<group>"; };
+		45F52FF323FFE26B00783610 /* DBYInviteCodeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYInviteCodeController.xib; sourceTree = "<group>"; };
+		45F52FF423FFE26B00783610 /* DBYRoomStateController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYRoomStateController.xib; sourceTree = "<group>"; };
+		45F5300823FFE2AA00783610 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45F5300E23FFE5C300783610 /* DBYRoomStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYRoomStateView.xib; sourceTree = "<group>"; };
+		45F5301D23FFF45E00783610 /* DBYCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBYCourseCell.xib; sourceTree = "<group>"; };
+		45F530262400025700783610 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A82366F853725F91A1CAA3 /* Pods-DBYSharedVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBYSharedVideo.debug.xcconfig"; path = "Target Support Files/Pods-DBYSharedVideo/Pods-DBYSharedVideo.debug.xcconfig"; sourceTree = "<group>"; };
+		4EEA94065A591C4DC05468F5 /* Pods-DBYSharedVideoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBYSharedVideoDemo.release.xcconfig"; path = "Target Support Files/Pods-DBYSharedVideoDemo/Pods-DBYSharedVideoDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7558C1D10A98673345F06601 /* Pods-DBYSharedVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBYSharedVideo.release.xcconfig"; path = "Target Support Files/Pods-DBYSharedVideo/Pods-DBYSharedVideo.release.xcconfig"; sourceTree = "<group>"; };
+		87167527062766D5C2BE59E0 /* Pods_DBYSharedVideoDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DBYSharedVideoDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB6B921C506834A8D5721CA /* Pods-DBYSharedVideoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DBYSharedVideoDemo.debug.xcconfig"; path = "Target Support Files/Pods-DBYSharedVideoDemo/Pods-DBYSharedVideoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		455F7A2223728DB200DCDE1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C703AAB9DFF708302C296C08 /* Pods_DBYSharedVideoDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		452D9D40240298E2006C1FC5 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				450D01C124054D3A00152EB8 /* UIViewController+Extention.h */,
+				450D01C224054D3A00152EB8 /* UIViewController+Extention.m */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		455F7A1C23728DB200DCDE1F = {
+			isa = PBXGroup;
+			children = (
+				45F52FD723FFDB4200783610 /* DBYSharedVideoDemo */,
+				455F7A2623728DB200DCDE1F /* Products */,
+				EC0AD261E11DC806AE3212C7 /* Pods */,
+				E8673754F5255520C2D2C9DA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		455F7A2623728DB200DCDE1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				455F7A2523728DB200DCDE1F /* 新版大班.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45F52FD723FFDB4200783610 /* DBYSharedVideoDemo */ = {
+			isa = PBXGroup;
+			children = (
+				45C988822403C2820042914B /* AppDelegate.h */,
+				45C988802403C2810042914B /* AppDelegate.m */,
+				45C988812403C2820042914B /* main.m */,
+				452D9D40240298E2006C1FC5 /* Extention */,
+				45F530262400025700783610 /* Info.plist */,
+				45F5301723FFF26C00783610 /* Style */,
+				45F5300C23FFE5C300783610 /* Views */,
+				45F52FEC23FFE26B00783610 /* CourseList */,
+				45F52FF223FFE26B00783610 /* Login */,
+				45F52FEB23FFDE0800783610 /* OCHeader.h */,
+				45F52FDE23FFDB4200783610 /* test_courses.json */,
+				45F52FDF23FFDB4200783610 /* LaunchScreen.storyboard */,
+				45F5300823FFE2AA00783610 /* Assets.xcassets */,
+			);
+			path = DBYSharedVideoDemo;
+			sourceTree = "<group>";
+		};
+		45F52FEC23FFE26B00783610 /* CourseList */ = {
+			isa = PBXGroup;
+			children = (
+				45F52FEF23FFE26B00783610 /* DBYCourseListController.xib */,
+				450D01A72404E03E00152EB8 /* DBYCourseListController.h */,
+				450D01A82404E03E00152EB8 /* DBYCourseListController.m */,
+			);
+			path = CourseList;
+			sourceTree = "<group>";
+		};
+		45F52FF223FFE26B00783610 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				45C988852403C3DC0042914B /* DBYInviteCodeController.h */,
+				45C988862403C3DC0042914B /* DBYInviteCodeController.m */,
+				45F52FF323FFE26B00783610 /* DBYInviteCodeController.xib */,
+				450D01A42404DFE300152EB8 /* DBYRoomStateController.h */,
+				450D01A52404DFE300152EB8 /* DBYRoomStateController.m */,
+				45F52FF423FFE26B00783610 /* DBYRoomStateController.xib */,
+				450D01B12404E8E600152EB8 /* DBYUrlController.h */,
+				450D01B22404E8E600152EB8 /* DBYUrlController.m */,
+				450D01AD2404E84E00152EB8 /* DBYUrlController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		45F5300C23FFE5C300783610 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				450D01AA2404E50E00152EB8 /* DBYCourseCell.h */,
+				450D01AB2404E50E00152EB8 /* DBYCourseCell.m */,
+				45F5301D23FFF45E00783610 /* DBYCourseCell.xib */,
+				450D01B72404ECA200152EB8 /* DBYRoomStateView.h */,
+				450D01B82404ECA200152EB8 /* DBYRoomStateView.m */,
+				45F5300E23FFE5C300783610 /* DBYRoomStateView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45F5301723FFF26C00783610 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				450D01BA240504E700152EB8 /* DBYString.h */,
+				450D01BB240504E700152EB8 /* DBYString.m */,
+				450D01BD2405489C00152EB8 /* DBYTheme.h */,
+				450D01BE2405489C00152EB8 /* DBYTheme.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		E8673754F5255520C2D2C9DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87167527062766D5C2BE59E0 /* Pods_DBYSharedVideoDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC0AD261E11DC806AE3212C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49A82366F853725F91A1CAA3 /* Pods-DBYSharedVideo.debug.xcconfig */,
+				7558C1D10A98673345F06601 /* Pods-DBYSharedVideo.release.xcconfig */,
+				9BB6B921C506834A8D5721CA /* Pods-DBYSharedVideoDemo.debug.xcconfig */,
+				4EEA94065A591C4DC05468F5 /* Pods-DBYSharedVideoDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		455F7A2423728DB200DCDE1F /* DBYSharedVideoDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455F7A3E23728DB400DCDE1F /* Build configuration list for PBXNativeTarget "DBYSharedVideoDemo" */;
+			buildPhases = (
+				673DFF0E5C6453695878359F /* [CP] Check Pods Manifest.lock */,
+				455F7A2123728DB200DCDE1F /* Sources */,
+				455F7A2223728DB200DCDE1F /* Frameworks */,
+				455F7A2323728DB200DCDE1F /* Resources */,
+				0217D63D1762D5B9CF4BC2E0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DBYSharedVideoDemo;
+			productName = DBYSharedVideo;
+			productReference = 455F7A2523728DB200DCDE1F /* 新版大班.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		455F7A1D23728DB200DCDE1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DBY;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = duobei;
+				TargetAttributes = {
+					455F7A2423728DB200DCDE1F = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 455F7A2023728DB200DCDE1F /* Build configuration list for PBXProject "DBYSharedVideoDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 455F7A1C23728DB200DCDE1F;
+			productRefGroup = 455F7A2623728DB200DCDE1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				455F7A2423728DB200DCDE1F /* DBYSharedVideoDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		455F7A2323728DB200DCDE1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45F5301223FFE5C300783610 /* DBYRoomStateView.xib in Resources */,
+				45F52FE723FFDB4200783610 /* test_courses.json in Resources */,
+				45F5300123FFE26B00783610 /* DBYRoomStateController.xib in Resources */,
+				45F52FE823FFDB4200783610 /* LaunchScreen.storyboard in Resources */,
+				45F5300023FFE26B00783610 /* DBYInviteCodeController.xib in Resources */,
+				450D01AF2404E84E00152EB8 /* DBYUrlController.xib in Resources */,
+				45F52FFD23FFE26B00783610 /* DBYCourseListController.xib in Resources */,
+				45F5300923FFE2AA00783610 /* Assets.xcassets in Resources */,
+				45F5301F23FFF45E00783610 /* DBYCourseCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0217D63D1762D5B9CF4BC2E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DBYSharedVideoDemo/Pods-DBYSharedVideoDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		673DFF0E5C6453695878359F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DBYSharedVideoDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		455F7A2123728DB200DCDE1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				450D01B32404E8E600152EB8 /* DBYUrlController.m in Sources */,
+				450D01C324054D3A00152EB8 /* UIViewController+Extention.m in Sources */,
+				450D01A62404DFE300152EB8 /* DBYRoomStateController.m in Sources */,
+				450D01BF2405489C00152EB8 /* DBYTheme.m in Sources */,
+				45C988832403C2820042914B /* AppDelegate.m in Sources */,
+				450D01A92404E03E00152EB8 /* DBYCourseListController.m in Sources */,
+				450D01BC240504E700152EB8 /* DBYString.m in Sources */,
+				45C988842403C2820042914B /* main.m in Sources */,
+				45C988872403C3DC0042914B /* DBYInviteCodeController.m in Sources */,
+				450D01B92404ECA200152EB8 /* DBYRoomStateView.m in Sources */,
+				450D01AC2404E50E00152EB8 /* DBYCourseCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		45F52FDF23FFDB4200783610 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45F52FE023FFDB4200783610 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		455F7A3C23728DB400DCDE1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		455F7A3D23728DB400DCDE1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		455F7A3F23728DB400DCDE1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB6B921C506834A8D5721CA /* Pods-DBYSharedVideoDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VB8MVMJBU4;
+				INFOPLIST_FILE = DBYSharedVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duobei.DBYSharedVideoDemo;
+				PRODUCT_NAME = "新版大班";
+				SWIFT_OBJC_BRIDGING_HEADER = DBYSharedVideoDemo/OCHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		455F7A4023728DB400DCDE1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EEA94065A591C4DC05468F5 /* Pods-DBYSharedVideoDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VB8MVMJBU4;
+				INFOPLIST_FILE = DBYSharedVideoDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duobei.DBYSharedVideoDemo;
+				PRODUCT_NAME = "新版大班";
+				SWIFT_OBJC_BRIDGING_HEADER = DBYSharedVideoDemo/OCHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		455F7A2023728DB200DCDE1F /* Build configuration list for PBXProject "DBYSharedVideoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455F7A3C23728DB400DCDE1F /* Debug */,
+				455F7A3D23728DB400DCDE1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		455F7A3E23728DB400DCDE1F /* Build configuration list for PBXNativeTarget "DBYSharedVideoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455F7A3F23728DB400DCDE1F /* Debug */,
+				455F7A4023728DB400DCDE1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 455F7A1D23728DB200DCDE1F /* Project object */;
+}

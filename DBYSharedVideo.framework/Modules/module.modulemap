@@ -1,0 +1,11 @@
+framework module DBYSharedVideo {
+  umbrella header "DBYSharedVideo-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module DBYSharedVideo.Swift {
+    header "DBYSharedVideo-Swift.h"
+    requires objc
+}

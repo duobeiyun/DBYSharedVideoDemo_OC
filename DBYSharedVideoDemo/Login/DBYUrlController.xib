@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DBYUrlController">
+            <connections>
+                <outlet property="goBackBtn" destination="BvT-Q9-j60" id="Ewh-yT-TJh"/>
+                <outlet property="marginTop" destination="xuL-uK-asD" id="XXa-kK-Gvq"/>
+                <outlet property="topView" destination="9YB-g0-0Pp" id="3VW-YG-r7b"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xdj-bh-avD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9YB-g0-0Pp">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="294.33333333333331"/>
+                    <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ii-IQ-lFg">
+                    <rect key="frame" x="0.0" y="326.33333333333326" width="414" height="367.66666666666674"/>
+                    <color key="backgroundColor" red="0.93348455429077148" green="0.93333834409713745" blue="0.9497191309928894" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvT-Q9-j60">
+                    <rect key="frame" x="16" y="28" width="48" height="38"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.13" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="asE-fq-qHl"/>
+                        <constraint firstAttribute="height" constant="38" id="ww0-AY-2VQ"/>
+                    </constraints>
+                    <state key="normal" image="btn-logout-classroom"/>
+                    <connections>
+                        <action selector="goBackWithBtn:" destination="-1" eventType="touchUpInside" id="C9n-ap-DzB"/>
+                        <action selector="goback:" destination="-1" eventType="touchUpInside" id="InO-eJ-XxK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7Ii-IQ-lFg" secondAttribute="trailing" id="4yr-pK-d66"/>
+                <constraint firstItem="9YB-g0-0Pp" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="YAq-s6-Jye"/>
+                <constraint firstAttribute="bottom" secondItem="7Ii-IQ-lFg" secondAttribute="bottom" constant="42" id="YZw-8p-Dmr"/>
+                <constraint firstItem="7Ii-IQ-lFg" firstAttribute="top" secondItem="9YB-g0-0Pp" secondAttribute="bottom" constant="32" id="cGv-BF-6Xs"/>
+                <constraint firstAttribute="trailing" secondItem="9YB-g0-0Pp" secondAttribute="trailing" id="f4I-5T-OZZ"/>
+                <constraint firstItem="BvT-Q9-j60" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="qQ4-o3-nox"/>
+                <constraint firstItem="9YB-g0-0Pp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="swN-XG-XIz"/>
+                <constraint firstItem="7Ii-IQ-lFg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="v4c-Z6-Dic"/>
+                <constraint firstItem="BvT-Q9-j60" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="xuL-uK-asD"/>
+                <constraint firstItem="9YB-g0-0Pp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xwl-5d-IcT"/>
+            </constraints>
+            <point key="canvasLocation" x="130.40000000000001" y="120.98950524737631"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn-logout-classroom" width="24" height="24"/>
+    </resources>
+</document>

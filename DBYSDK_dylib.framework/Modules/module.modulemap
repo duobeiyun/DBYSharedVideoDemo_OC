@@ -1,0 +1,6 @@
+framework module DBYSDK_dylib {
+  umbrella header "DBYSDK_dylib-umbrella.h"
+
+  export *
+  module * { export * }
+}

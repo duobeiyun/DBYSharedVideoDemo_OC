@@ -1,0 +1,35 @@
+PODS:
+  - Bugly (2.5.0)
+  - DBYSDK_dylib (2.0.0)
+  - DBYSharedVideo (2.0.0)
+  - SDWebImage (5.3.3):
+    - SDWebImage/Core (= 5.3.3)
+  - SDWebImage/Core (5.3.3)
+
+DEPENDENCIES:
+  - Bugly
+  - DBYSDK_dylib (from `./DBYSDK_dylib.podspec`)
+  - DBYSharedVideo (from `./DBYSharedVideo.podspec`)
+  - SDWebImage (~> 5.0)
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - SDWebImage
+  https://github.com/CocoaPods/Specs.git:
+    - Bugly
+
+EXTERNAL SOURCES:
+  DBYSDK_dylib:
+    :path: "./DBYSDK_dylib.podspec"
+  DBYSharedVideo:
+    :path: "./DBYSharedVideo.podspec"
+
+SPEC CHECKSUMS:
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  DBYSDK_dylib: 25838f1b75583d068ff93f2bac671135a5add0a3
+  DBYSharedVideo: 17ee631af7fe52e92a792fd7131b3ebe5e117f78
+  SDWebImage: 51ab1ce3ebd20dec6665ae8ba25c928da323db41
+
+PODFILE CHECKSUM: 49634dcfcb5d8321b66efde8b77f73ef2a432651
+
+COCOAPODS: 1.8.4
