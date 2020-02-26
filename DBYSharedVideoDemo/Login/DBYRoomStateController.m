@@ -37,8 +37,8 @@
     [super viewDidLoad];
     
     CGFloat radius = _goBackBtn.bounds.size.height * 0.5;
-    [_reTryBtn setBackgroudnStyleWithFillColor:DBYTheme.darkColor strokeColor:UIColor.whiteColor radius:radius];
-    [_goBackBtn setBackgroudnStyleWithFillColor:UIColor.whiteColor strokeColor:DBYTheme.darkColor radius:radius];
+//    [_reTryBtn setBackgroudnStyleWithFillColor:DBYTheme.darkColor strokeColor:UIColor.whiteColor radius:radius];
+//    [_goBackBtn setBackgroudnStyleWithFillColor:UIColor.whiteColor strokeColor:DBYTheme.darkColor radius:radius];
     
     _titleLab.text = _tipTitle;
     _tipLab.text = _tipMessage;
