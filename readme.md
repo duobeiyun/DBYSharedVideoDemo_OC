@@ -25,6 +25,16 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 - 点击 `+` 按钮 添加 `DBYSDK_dylib.framework` 和 `DBYSharedVideo.framework`
 
 ## 使用
+### 环境切换
+由于我们的之前的业务在com环境上，现在有一部分新的业务在net环境。所以提供这个接口供切换。
+```objc
+//切换到net
+[DBYClient setDomainType:DBYDomainTypeNet];
+//切换到com
+[DBYClient setDomainType:DBYDomainTypeCom];
+```
+注意：需要在进入教室之前使用
+
 ### 直播
 [直播文档](./live.md)
 ### 回放
