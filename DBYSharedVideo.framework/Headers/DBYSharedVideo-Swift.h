@@ -223,6 +223,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIColor;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
 @interface DBYButton : UIButton
@@ -230,6 +231,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
 - (void)layoutSubviews;
+- (void)setBackgroudnStyleWithFillColor:(UIColor * _Nonnull)fillColor strokeColor:(UIColor * _Nonnull)strokeColor radius:(CGFloat)radius;
 @end
 
 
@@ -252,10 +254,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
-
-
 
 
 
@@ -343,6 +341,8 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 
 
 
+
+
 @interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -357,7 +357,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager playStateIsPlaying:(BOOL)isPlaying;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
-- (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasTeacherNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newTeacherChatDictArray;
 - (void)offlinePlayBackManagerChatMessageShouldClear:(DBYOfflinePlayBackManager * _Null_unspecified)manager;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager isPlayingAtProgress:(float)progress time:(NSTimeInterval)time;
 - (void)offlinePlayBackManagerFinishedPlay:(DBYOfflinePlayBackManager * _Null_unspecified)manager;
@@ -656,6 +655,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIColor;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
 @interface DBYButton : UIButton
@@ -663,6 +663,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
 - (void)layoutSubviews;
+- (void)setBackgroudnStyleWithFillColor:(UIColor * _Nonnull)fillColor strokeColor:(UIColor * _Nonnull)strokeColor radius:(CGFloat)radius;
 @end
 
 
@@ -685,10 +686,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
-
-
 
 
 
@@ -776,6 +773,8 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 
 
 
+
+
 @interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -790,7 +789,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager playStateIsPlaying:(BOOL)isPlaying;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
-- (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasTeacherNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newTeacherChatDictArray;
 - (void)offlinePlayBackManagerChatMessageShouldClear:(DBYOfflinePlayBackManager * _Null_unspecified)manager;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager isPlayingAtProgress:(float)progress time:(NSTimeInterval)time;
 - (void)offlinePlayBackManagerFinishedPlay:(DBYOfflinePlayBackManager * _Null_unspecified)manager;

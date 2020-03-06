@@ -12,7 +12,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    __weak typeof(self) weakSelf = self;
+    _progressChangeBlock = ^(float progress, float currentSize, float totalsize) {
+        printf("%f \n", progress);
+    };
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

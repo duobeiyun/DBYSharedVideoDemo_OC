@@ -7,6 +7,7 @@
 //
 
 #import <DBYSDK_dylib/DBYSDK.h>
+#import <DBYSharedVideo/DBYSharedVideo-umbrella.h>
 
 #import "DBYCourseListController.h"
 #import "DBYCourseCell.h"
@@ -25,6 +26,7 @@ NSString *reuseIdentifier = @"DBYCourseCell";
 
 @implementation DBYCourseListController
 - (IBAction)goback:(id)sender {
+    [[DBYDownloadTaskManager sharedInstance] pauseAllDownloadTask];
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidLoad {
@@ -81,18 +83,64 @@ NSString *reuseIdentifier = @"DBYCourseCell";
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSAssert(NO, @"请在test_courses.json填写完整课程信息");
     //测试数据
     DBYLessonItem *item = self.items[indexPath.row];
-    NSString *url = [[DBYUrlConfig sharedConfig] authinfoUrlWithRoomID:item.roomId
-                                                              userName:@"学员1650474"
-                                                                userID:@"222"
-                                                              userRole:2
-                                                             partnerID:item.partnerId
-                                                                appkey:item.appkey];
+    DBYCourseCell *cell = (DBYCourseCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-    DBYUrlController *vc = [[DBYUrlController alloc] init];
-    vc.urlString = url;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (item.secret.length < 1) {
+        NSString *url = [[DBYUrlConfig sharedConfig] authinfoUrlWithRoomID:item.roomId
+                                                                  userName:@"学员1650474"
+                                                                    userID:@"222"
+                                                                  userRole:2
+                                                                 partnerID:item.partnerId
+                                                                    appkey:item.appkey];
+        
+        DBYUrlController *vc = [[DBYUrlController alloc] init];
+        vc.urlString = url;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    ///下载课程
+    NSArray *list = [[DBYDownloadDataManager shareManager] getAllDownloadModel];
+    DBYDownloadModel *downloadModel;
+    for (DBYDownloadModel *model in list) {
+        if ([model.uniqueId isEqualToString:item.roomId]) {
+            downloadModel = model;
+            break;
+        }
+    }
+    if (downloadModel.state == DBYDownloadStateFinished) {
+        DBYOfflineController *vc = [[DBYOfflineController alloc] init];
+        vc.title = item.title;
+        vc.roomID = item.roomId;
+        vc.classFilePath = [DBYClient getLessonFilePathWith:item.roomId];
+        vc.offlineKey = item.secret;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    if (downloadModel.state == DBYDownloadStateDownloading) {
+        float progress = downloadModel.progress * 100;
+        NSString *message = [NSString stringWithFormat:@"%.f%%", progress];
+        [[DBYGlobalMessage shared] showText:message];
+        return;
+    }
+    if (downloadModel.state == DBYDownloadStatePaused) {
+        //开始下载
+        [[DBYDownloadTaskManager sharedInstance] startDownloadWithModel:downloadModel];
+        return;
+    }
+    //新版大班始终是视频课资源类型
+    NSString *downloadUrl = [DBYClient lessonDownloadUrlWithRoomId:item.roomId hasVideo:YES];
+    downloadModel = [[DBYDownloadModel alloc] init];
+    downloadModel.uniqueId = item.roomId;
+    downloadModel.fileName = item.title;
+    downloadModel.url = downloadUrl;
+    //开始下载
+    [[DBYDownloadTaskManager sharedInstance] startDownloadWithModel:downloadModel];
+    [[DBYGlobalMessage shared] showText:@"开始下载"];
+    
+    downloadModel.progressChangeBlock = cell.progressChangeBlock;
 }
 
 #pragma mark - lazy

@@ -197,6 +197,9 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
 
 - (void)closeMicrophone;
 
+- (void)requestToOpenCamera;
+
+- (void)requestToCloseCamera;
 /**
  回应老师上台请求
  @param openCamera 是否同意开启摄像头

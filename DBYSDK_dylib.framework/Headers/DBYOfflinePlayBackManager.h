@@ -113,7 +113,7 @@ DEPRECATED_MSG_ATTRIBUTE("这个接口将要废弃，建议使用startPlaybackWi
 - (void)setPlayRate:(float)rate;
 
 /**
- *  播放
+ *  重新开始播放
  */
 - (void)play;
 

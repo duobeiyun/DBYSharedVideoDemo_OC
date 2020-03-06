@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIButton *oprationBtn;
 
+@property (copy, nonatomic) void (^progressChangeBlock)(float progress, float currentSize, float totalsize);
+
 @end
 
 NS_ASSUME_NONNULL_END

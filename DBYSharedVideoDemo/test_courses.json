@@ -1,37 +1,24 @@
 [
     {
-        "title": "请填写机构信息",
+        "title": "离线测试课1",
         "iconName": "slide-1",
-        "roomId": "xxx",
-        "secret": "xxx",
-        "inviteCode": "xxx",
+        "roomId": "jzxxx",
+        "secret": "xxx"
+    },{
+        "title": "离线测试课2",
+        "iconName": "slide-1",
+        "roomId": "jzxxx",
+        "secret": "xxx"
+    },{
+        "title": "在线测试课1",
+        "iconName": "slide-1",
+        "roomId": "jzxxx",
         "partnerId": "xxx",
         "appkey": "xxx"
-    },
-    {
-        "title": "请填写机构信息",
+    },{
+        "title": "在线测试课2",
         "iconName": "slide-1",
-        "roomId": "xxx",
-        "secret": "xxx",
-        "inviteCode": "xxx",
-        "partnerId": "xxx",
-        "appkey": "xxx"
-    },
-    {
-        "title": "请填写机构信息",
-        "iconName": "slide-1",
-        "roomId": "xxx",
-        "secret": "xxx",
-        "inviteCode": "xxx",
-        "partnerId": "xxx",
-        "appkey": "xxx"
-    },
-    {
-        "title": "请填写机构信息",
-        "iconName": "slide-1",
-        "roomId": "xxx",
-        "secret": "xxx",
-        "inviteCode": "xxx",
+        "roomId": "jzxxx",
         "partnerId": "xxx",
         "appkey": "xxx"
     }
