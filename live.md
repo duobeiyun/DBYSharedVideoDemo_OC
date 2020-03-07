@@ -1,8 +1,3 @@
----
-sidebarDepth: 1
-title: ios 直播 API 参考文档
----
-
 # 多贝云 SaaS SDK iOS 直播 API 参考文档
 
 ## 主动调用模块

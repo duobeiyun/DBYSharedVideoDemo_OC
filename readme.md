@@ -37,8 +37,11 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 
 ### 直播
 [直播文档](./live.md)
-### 回放
-[回放文档](./playback.md)
+### 在线回放
+[在线回放文档](./onlinePlayback.md)
+### 离线回放
+[离线回放文档](./offlinePlayback.md)
+
 ## FAQ
 
 ### 回放进不去？
