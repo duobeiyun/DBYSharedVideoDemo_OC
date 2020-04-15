@@ -38,11 +38,11 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 ```
 注意：需要在进入教室之前使用
 
-### 直播
+### 直播文档
 [直播文档](./live.md)
-### 在线回放
+### 在线回放文档
 [在线回放文档](./onlinePlayback.md)
-### 离线回放
+### 离线回放文档
 [离线回放文档](./offlinePlayback.md)
 
 ## FAQ
@@ -61,4 +61,7 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 4、点赞功能
 6、自定义展示面板，课程介绍和一些其他展示
 7、投票部分流程的更改
+
+## 注意事项&更新内容
+[注意事项](./update.md)
 
