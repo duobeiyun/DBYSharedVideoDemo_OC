@@ -7,7 +7,7 @@
 //
 
 #import <DBYSharedVideo/DBYSharedVideo-umbrella.h>
-#import <DBYSDK_dylib/DBYSDK_dylib.h>
+#import <DBYSDK_dylib/DBYSDK.h>
 #import "DBYUrlController.h"
 #import "DBYString.h"
 #import "DBYRoomStateController.h"

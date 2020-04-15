@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)rootPath;
 + (NSString *)contentsPath;
++ (NSString *)archivePath;
 
 + (NSArray<DBYLessonItem *> *)getAllDownloadedLessons;
 + (void)addLessonItem:(DBYLessonItem *)item;

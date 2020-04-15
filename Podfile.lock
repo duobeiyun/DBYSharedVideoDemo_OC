@@ -10,7 +10,7 @@ DEPENDENCIES:
   - Bugly
   - DBYSDK_dylib (from `./DBYSDK_dylib.podspec`)
   - DBYSharedVideo (from `./DBYSharedVideo.podspec`)
-  - SDWebImage (~> 5.0)
+  - SDWebImage (~> 5.3.3)
 
 SPEC REPOS:
   https://cdn.cocoapods.org/:
@@ -30,6 +30,6 @@ SPEC CHECKSUMS:
   DBYSharedVideo: 17ee631af7fe52e92a792fd7131b3ebe5e117f78
   SDWebImage: 51ab1ce3ebd20dec6665ae8ba25c928da323db41
 
-PODFILE CHECKSUM: 49634dcfcb5d8321b66efde8b77f73ef2a432651
+PODFILE CHECKSUM: b52c089cfcfb81aa4ace08b7bcc7f32551b72bf3
 
 COCOAPODS: 1.9.0

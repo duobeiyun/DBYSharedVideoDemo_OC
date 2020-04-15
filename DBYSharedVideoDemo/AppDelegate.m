@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <DBYSDK_dylib/DBYSDK_dylib.h>
+#import <DBYSDK_dylib/DBYSDK.h>
 #import <DBYSharedVideo/DBYSharedVideo-umbrella.h>
 #import <Bugly/Bugly.h>
 

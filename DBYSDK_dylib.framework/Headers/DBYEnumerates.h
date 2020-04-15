@@ -208,4 +208,10 @@ typedef NS_ENUM(NSUInteger, DBYMessageType) {
     DBYMessageTypeVideoOffline,
 };
 
+typedef NS_ENUM(NSUInteger, DBYCameraState) {
+    DBYCameraStateNormal,
+    DBYCameraStateInvite,
+    DBYCameraStateJoined
+};
+
 #endif /* DBYEnumerates_h */

@@ -6,10 +6,10 @@
 *
 ********************************************************/
 #pragma once
-#define GIT_VERSION     "v2.3.1.3_saas-2021-gd0ecde"
-#define GIT_DATE     "2020-03-06"
-#define GIT_HASH     "d0ecdec8cac80484ce7df98a774bea028482ec1c"
-#define GIT_BRANCH     "master"
-#define GIT_USER_NAME     "wxl"
-#define GIT_USER_EMAIL     "921825925@qq.com"
-#define DB_VERSION     "v2.3.1.3_saas"
+#define GIT_VERSION     "v2.3.1.3_saas-2204-ga7c5b2"
+#define GIT_DATE     "2020-04-14"
+#define GIT_HASH     "a7c5b2200f84462d24240190766c4cd01a84dc56"
+#define GIT_BRANCH     "develop"
+#define GIT_USER_NAME     "guochao"
+#define GIT_USER_EMAIL     "1303993457@qq.com"
+#define DB_VERSION     "libsol严重bug修复"

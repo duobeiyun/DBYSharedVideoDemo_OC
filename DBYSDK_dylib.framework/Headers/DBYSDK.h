@@ -21,6 +21,7 @@
 #import "DBYDownloadManager.h"
 #import "DBYDownloadTaskManager.h"
 #import "DBYDownloadDataManager.h"
+#import "DBYMD5.h"
 
 #import "DBYLiveManager.h"
 #import "DBYOnlinePlayBackManager.h"

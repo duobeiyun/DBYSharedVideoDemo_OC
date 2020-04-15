@@ -135,11 +135,15 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
 ///设置学生视频显示区域
 - (void)setStudentViewWith:(UIView *)studentView;
 
+
 ///设置老师视频显示区域（视频课可用）
 - (void)setTeacherViewWith:(UIView *)teacherView;
 
-///设置新版大班视频显示区域
+///设置新版大班桌面共享显示区域
 - (void)setSharedVideoView:(UIView *)videoView;
+
+///设置新版大班学生视频显示区域
+- (void)setStudentView:(UIView *)studentView withUserId:(NSString *)userId;
 
 ///设置画线宽度
 - (void)setDrawLineWidthWith:(CGFloat)lineWidth;
@@ -153,7 +157,50 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
  @param image the image
  */
 - (void)setPPTViewLoadFailedImage:(UIImage *)image;
+#pragma mark - 获取用户信息
+- (void)getUserInfo:(NSString *)userId compeletion:(void(^)(NSDictionary *userInfo))compeletion;
+#pragma mark - 上台、上麦相关方法
+///同意打开麦克风
+- (void)acceptToOpenMicrophone:(void(^)(BOOL finished))completion;
+///拒绝打开麦克风
+- (void)refuseToOpenMicrophone:(void(^)(BOOL finished))completion;
+///关闭麦克风
+- (void)closeMicrophone;
+///请求上台
+- (void)requestToOpenCamera;
+///请求下台
+- (void)requestToCloseCamera;
+///开、关麦克风
+///@param isOpen YES打开摄像头 NO关闭
+- (void)openMic:(BOOL)isOpen
+completeHandler:(void (^)(NSString *failMsg))completeHandler;
+/**
+ 开关摄像头
+ 学生只能在1v1课程中开启摄像头
+ @param isOpen YES打开摄像头 NO关闭
+ */
+- (void)openCam:(BOOL)isOpen
+completeHandler:(void (^)(NSString *failMsg))completeHandler;
+/**
+ 回应老师上台请求
+ @param openCamera 是否同意开启摄像头
+ @param completeHandler 完成回调 如果errorMsg不为空，则发送失败
+ */
+- (void)responseTeacherOpenCamRequestWithOpenCamera:(BOOL)openCamera
+                                    completeHandler:(void (^)(NSString *errorMsg))completeHandler;
 
+/**
+ 学生下台请求
+ @param completeHandler 完成回调 如果errorMsg不为空，则发送失败
+ */
+- (void)requestOffTheStageWithCompleteHandler:(void (^)(NSString *errorMsg))completeHandler;
+/**
+ 有视频的时候，可以通过此接口设置是否接收视频
+ 在网络状况较差的时候，设置不接收视频可以减少网络占用，保证音频质量
+ @param isReceiveVideo 是否接收视频
+ */
+- (void)setReceiveVideoWith:(BOOL)isReceiveVideo
+            completeHandler:(void (^)(NSString *failMsg))completeHandler;
 #pragma mark - 消息发送
 
 /**
@@ -191,54 +238,12 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
  */
 - (void)requestRaiseHandWithCompleteHandler:(void (^)(NSString *errorMsg))completeHandler;
 
-- (void)acceptToOpenMicrophone:(void(^)(BOOL finished))completion;
-
-- (void)refuseToOpenMicrophone:(void(^)(BOOL finished))completion;
-
-- (void)closeMicrophone;
-
-- (void)requestToOpenCamera;
-
-- (void)requestToCloseCamera;
-/**
- 回应老师上台请求
- @param openCamera 是否同意开启摄像头
- @param completeHandler 完成回调 如果errorMsg不为空，则发送失败
- */
-- (void)responseTeacherOpenCamRequestWithOpenCamera:(BOOL)openCamera
-                                    completeHandler:(void (^)(NSString *errorMsg))completeHandler;
-
-/**
- 学生下台请求
- @param completeHandler 完成回调 如果errorMsg不为空，则发送失败
- */
-- (void)requestOffTheStageWithCompleteHandler:(void (^)(NSString *errorMsg))completeHandler;
-
 ///发送投票消息
 - (void)sendVoteWithOptionIndex:(NSInteger)index;
 
 - (void)sendVoteWithOptionIndex:(NSInteger)index
                 completeHandler:(void (^)(NSString *errorMsg))completeHandler;
-
-/**
- 开关摄像头
- 学生只能在1v1课程中开启摄像头
- @param isOpen yes打开摄像头 no关闭
- */
-- (void)openCam:(BOOL)isOpen
-completeHandler:(void (^)(NSString *failMsg))completeHandler;
-
-/**
- 有视频的时候，可以通过此接口设置是否接收视频
- 在网络状况较差的时候，设置不接收视频可以减少网络占用，保证音频质量
- @param isReceiveVideo 是否接收视频
- */
-- (void)setReceiveVideoWith:(BOOL)isReceiveVideo
-            completeHandler:(void (^)(NSString *failMsg))completeHandler;
-
-- (void)openMic:(BOOL)isOpen
-completeHandler:(void (^)(NSString *failMsg))completeHandler;
-
+- (void)thumbsupWithCount:(int)count completeHandler:(void (^)(NSString *errorMsg))completeHandler;
 #pragma mark - utils
 
 ///错误代码对应的提示
@@ -252,9 +257,9 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
 
 @end
 
-
+#pragma mark - DBYLiveManagerDelegate
 @protocol DBYLiveManagerDelegate <NSObject>
-#pragma mark - rn需要的回调
+#pragma mark - 其他地方需要的回调
 /**
  远端将要获取到视频数据
  
@@ -281,32 +286,25 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
  */
 @optional
 - (void)willInterruptVideoData:(DBYLiveManager *)liveManager userId:(NSString *)uid;
-
 ///开启摄像头
 - (void)initVideoRecorder:(DBYLiveManager *)liveManager userId:(NSString *)uid;
 ///采集数据
 - (void)didRecordVideoData:(DBYVideoRecorder *)videoRecorder data:(void *)data width:(size_t)width height:(size_t) height;
 ///关闭摄像头
 - (void)destroyVideoRecorder:(DBYLiveManager *)liveManager userId:(NSString *)uid;
-
 ///获取到音频数据
 - (void)didReceivedAudioData:(DBYLiveManager *)liveManager data:(void *)data length:(unsigned int)length  userId:(NSString *)uid;
-
 ///开启麦克风
 - (void)initAudioRecorder:(DBYLiveManager *)liveManager userId:(NSString *)uid;
 ///本地采集到音频数据
 - (void)didRecordAudioData:(DBYLiveManager *)liveManager data:(void *)data length:(unsigned int)length  userId:(NSString *)uid;
 ///关闭麦克风
 - (void)destroyAudioRecorder:(DBYLiveManager *)liveManager userId:(NSString *)uid;
-
-///收到服务器clientOnline消息
--(void)clientOnline:(DBYLiveManager *)liveManager userId:(NSString*)uid nickName:(NSString*)nickName userRole:(int)role;
 ///用户被踢出教室
 -(void)kickedOff:(DBYLiveManager *)liveManager;
 ///状态码
 -(void)liveManager:(DBYLiveManager *)liveManager didReceivedStatusCode:(int)code;
-#pragma mark -
-
+#pragma mark - flash 大班
 @optional
 ///收到服务器clientOnline消息
 -(void)clientOnline:(DBYLiveManager *)liveManager userId:(NSString*)uid nickName:(NSString*)nickName userRole:(int)role;
@@ -385,6 +383,20 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
  @param status videoUp 视频上行速度 videoDown 视频下行速度 单位KB/s 等于-1时表示无速度 fps 每秒帧数
  */
 - (void)liveManager:(DBYLiveManager *)manager hasVideoStreamStatus:(NSDictionary *)status;
+/**
+ 老师点击清空举手列表时调用
+ */
+- (void)liveManagerTeacherDownHands:(DBYLiveManager *)manager;
+/**
+ 老师禁止举手时调用
+ 
+ @param isDeny 是否禁止
+ */
+- (void)liveManager:(DBYLiveManager *)manager denyRaiseHand:(BOOL)isDeny;
+/**
+ 举手失败时调用
+ */
+- (void)liveManagerRaiseHandFail:(DBYLiveManager *)manager;
 #pragma mark - 聊天相关
 /**
  有聊天时调用 返回收到的最新的消息
@@ -444,22 +456,6 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
     receivedMessage:(DBYMessageType)type
        withUserInfo:(NSDictionary<NSString *, NSString *> *)userInfo;
 
-#pragma mark - 上台、上麦相关方法
-/**
- 老师点击清空举手列表时调用
- */
-- (void)liveManagerTeacherDownHands:(DBYLiveManager *)manager;
-/**
- 老师禁止举手时调用
- 
- @param isDeny 是否禁止
- */
-- (void)liveManager:(DBYLiveManager *)manager denyRaiseHand:(BOOL)isDeny;
-/**
- 举手失败时调用
- */
-- (void)liveManagerRaiseHandFail:(DBYLiveManager *)manager;
-
 /**
  教师给麦或收麦时调用
  
@@ -474,12 +470,16 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
  @param canSpeak YES 给麦 / NO 收麦
  */
 - (void)liveManager:(DBYLiveManager *)manager teacherGiveMicToStudentWithUserInfo:(NSDictionary *)userInfo canSpeak:(BOOL)canSpeak;
-
 /**
  老师请求学生开启摄像头（仅限1vN）
  */
 - (void)liveManagerTeacherAskStudentOpenCamera:(DBYLiveManager *)manager;
-
+///等待上视频人员的序号
+- (void)liveManager:(DBYLiveManager *)manager cameraRequestIndex:(NSUInteger)index;
+///上视频状态变化，进教室的时候触发
+- (void)liveManager:(DBYLiveManager *)manager cameraStateChange:(DBYCameraState)state;
+///点赞
+- (void)liveManager:(DBYLiveManager *)manager thumbupWithCount:(NSInteger)count userName:(NSString *)userName;
 #pragma mark - 答题相关方法
 
 /**

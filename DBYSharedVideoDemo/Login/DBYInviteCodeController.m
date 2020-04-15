@@ -8,7 +8,7 @@
 
 #import "DBYInviteCodeController.h"
 #import <DBYSharedVideo/DBYSharedVideo-umbrella.h>
-#import <DBYSDK_dylib/DBYSDK_dylib.h>
+#import <DBYSDK_dylib/DBYSDK.h>
 #import "DBYString.h"
 #import "DBYRoomStateController.h"
 #import "DBYCourseListController.h"
@@ -78,8 +78,8 @@
     
     [_indicator startAnimating];
     [_enterRoomBtn setTitle:@"登录中" forState:UIControlStateNormal];
-    
-    [DBYAuthInfoUtil authInfoWithInviteCode:inviteCode nickName:nickname successHandler:^(DBYAuthInfo *authinfo) {
+    NSString *url = [[DBYUrlConfig sharedConfig] authinfoUrlWithRoomID:@"jza264af1c68d54ae0a0574dcfc2be4ba0" userName:@"123" userID:@"123" userRole:2 partnerID:@"201912101546333210000000107" appkey:@"f3d3d9ba7d474dac8e71e67431a95861"];
+    [DBYAuthInfoUtil authInfoWithUrl:url successHandler:^(DBYAuthInfo *authinfo) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.indicator stopAnimating];
             [self enterRoomWithAuthinfo:authinfo];
@@ -145,7 +145,7 @@
 }
 - (void)enterStatePage:(DBYAuthInfo *)authInfo {
     NSString *tipTitle = @"";
-    NSString * tipMessage = @"";
+    NSString *tipMessage = @"";
     switch (authInfo.courseStatus) {
         case DBYCourseStatusPlaybackEmpty:
             tipTitle = @"空录像";

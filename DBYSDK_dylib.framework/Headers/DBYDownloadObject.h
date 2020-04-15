@@ -6,11 +6,11 @@
 //  Copyright © 2016年 duobei. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "DBYEnumerates.h"
 #import "DBYConstants.h"
+#import "DBYEnumerates.h"
+#import <Foundation/Foundation.h>
 
-@protocol DBYDownloadObjectDelegate ;
+@protocol DBYDownloadObjectDelegate;
 
 @interface DBYDownloadObject : NSObject <NSCoding>
 
@@ -33,20 +33,20 @@
 //已下载大小
 @property (nonatomic, assign) float downloadedSize;
 //下载链接 （自动生成）
-@property (nonatomic, copy) NSString* downloadURLString;
+@property (nonatomic, copy) NSString *downloadURLString;
 //续传数据
-@property (nonatomic, strong) NSData* resumeData;
+@property (nonatomic, strong) NSData *resumeData;
 ///下载事件代理
 @property (nonatomic, weak) id<DBYDownloadObjectDelegate> delegate;
 //一段时间内下载数据长度
 @property (nonatomic, assign) unsigned long long orderTimeRecvLen;
 //下载任务
-@property (nonatomic, strong) NSURLSessionDownloadTask* downloadTask;
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
-+ (instancetype)downloadObjectWithRoomID:(NSString*)roomID;
++ (instancetype)downloadObjectWithRoomID:(NSString *)roomID;
 //设置是否下载包含视频课程 需在下载前设置
 - (void)setObjectDownloadLessonWithVideo:(BOOL)withVideo;
-- (void)getFileLengthWith:(void(^)(unsigned long long totalLen,NSString*errorMsg))completeHandler;
+- (void)getFileLengthWith:(void (^)(unsigned long long totalLen, NSString *errorMsg))completeHandler;
 
 @end
 
@@ -60,16 +60,16 @@
  *
  *  @param downloadObject 下载对象
  */
-- (void)downloadObjectDidUpdateInfo:(DBYDownloadObject*)downloadObject;
+- (void)downloadObjectDidUpdateInfo:(DBYDownloadObject *)downloadObject;
 /**
  *  下载完成调用
  *
  *  @param downloadObject 下载对象
  */
-- (void)downloadObjectFinishDownload:(DBYDownloadObject*)downloadObject;
+- (void)downloadObjectFinishDownload:(DBYDownloadObject *)downloadObject;
 //暂停下载调用
 - (void)downloadObjectDidPauseDownload:(DBYDownloadObject *)downloadObject;
 //下载出错调用
-- (void)downloadObject:(DBYDownloadObject*)downloadObject didDownloadFailWithError:(NSError*)error;
+- (void)downloadObject:(DBYDownloadObject *)downloadObject didDownloadFailWithError:(NSError *)error;
 
 @end

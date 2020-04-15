@@ -17,5 +17,5 @@ target 'DBYSharedVideoDemo' do
     
     common_pods
     
-    pod 'SDWebImage', '~> 5.0'
+    pod 'SDWebImage', '~> 5.3.3'
 end

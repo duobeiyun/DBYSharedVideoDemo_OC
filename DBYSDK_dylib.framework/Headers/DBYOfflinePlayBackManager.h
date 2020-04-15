@@ -232,5 +232,7 @@ DEPRECATED_MSG_ATTRIBUTE("这个接口将要废弃，建议使用startPlaybackWi
  @param view 视频相关的view
  */
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager *)manager hasVideo:(BOOL)hasVideo inView:(UIView *)view;
+#pragma mark - 新版大班
+- (void)offlinePlayBackManager:(DBYOfflinePlayBackManager *)manager thumbupWithCount:(NSInteger)count;
 
 @end

@@ -203,7 +203,7 @@ DEPRECATED_MSG_ATTRIBUTE("这个接口将要废弃，建议使用startPlaybackWi
 //恢复api
 - (void)resumeApi;
 
-//设置播放速度 返回是否设置成功 （0.5-2.0）
+//设置播放速度 返回是否设置成功 （0.5-3.0）
 - (void)setPlaySpeedWith:(float)speed CompleteHandler:(void (^)(BOOL result))completeHandler;
 
 @end
@@ -283,6 +283,10 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
  如果使用自己维护的数组来管理聊天，则需要在这个方法中清空相应数组，避免后续回调聊天数据导致聊天重复
  */
 - (void)playBackManagerTeacherChatMessageShouldClear:(DBYOnlinePlayBackManager *)manager;
+
+#pragma mark - 新版大班
+- (void)playBackManager:(DBYOnlinePlayBackManager *)manager thumbupWithCount:(NSInteger)count;
+- (void)playBackManager:(DBYOnlinePlayBackManager *)manager onlineWithuserId:(NSString*)uid nickName:(NSString*)nickName userRole:(int)role;
 
 #pragma mark - ppt
 //加载ppt失败时调用

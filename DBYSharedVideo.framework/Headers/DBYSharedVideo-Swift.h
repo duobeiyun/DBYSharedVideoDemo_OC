@@ -223,6 +223,14 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIScrollView;
+
+@interface DBY1VNController (SWIFT_EXTENSION(DBYSharedVideo)) <UIScrollViewDelegate>
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+@end
+
+
+
 @class UIColor;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
@@ -243,7 +251,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBYGlobalMessage")
 - (void)showText:(NSString * _Nonnull)text;
 @end
 
-@class UIScrollView;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 @interface DBYLiveController : DBY1VNController
@@ -315,6 +322,13 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestions:(NSArray<NSDictionary *> * _Null_unspecified)array;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestion:(NSDictionary * _Null_unspecified)dict;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager removedQuestion:(NSString * _Null_unspecified)questionId;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraRequestIndex:(NSUInteger)index;
+- (void)initVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid SWIFT_METHOD_FAMILY(none);
+- (void)destroyVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraStateChange:(DBYCameraState)state;
+- (void)willReceivedVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)willInterruptVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count userName:(NSString * _Null_unspecified)userName;
 @end
 
 
@@ -354,6 +368,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 @class DBYOfflinePlayBackManager;
 
 @interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYOfflinePlayBackManagerDelegate>
+- (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager playStateIsPlaying:(BOOL)isPlaying;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
@@ -377,8 +392,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 
 
 
-
-
 @interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -390,6 +403,8 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 @class DBYOnlinePlayBackManager;
 
 @interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYOnlinePlayBackManagerDelegate>
+- (void)playBackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager onlineWithuserId:(NSString * _Null_unspecified)uid nickName:(NSString * _Null_unspecified)nickName userRole:(int32_t)role;
+- (void)playBackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count;
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager playStateChange:(BOOL)isPlaying;
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
 - (void)playBackManagerChatMessageShouldClear:(DBYOnlinePlayBackManager * _Null_unspecified)manager;
@@ -655,6 +670,14 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIScrollView;
+
+@interface DBY1VNController (SWIFT_EXTENSION(DBYSharedVideo)) <UIScrollViewDelegate>
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+@end
+
+
+
 @class UIColor;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo9DBYButton")
@@ -675,7 +698,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBYGlobalMessage")
 - (void)showText:(NSString * _Nonnull)text;
 @end
 
-@class UIScrollView;
 
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 @interface DBYLiveController : DBY1VNController
@@ -747,6 +769,13 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestions:(NSArray<NSDictionary *> * _Null_unspecified)array;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestion:(NSDictionary * _Null_unspecified)dict;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager removedQuestion:(NSString * _Null_unspecified)questionId;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraRequestIndex:(NSUInteger)index;
+- (void)initVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid SWIFT_METHOD_FAMILY(none);
+- (void)destroyVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraStateChange:(DBYCameraState)state;
+- (void)willReceivedVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)willInterruptVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count userName:(NSString * _Null_unspecified)userName;
 @end
 
 
@@ -786,6 +815,7 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 @class DBYOfflinePlayBackManager;
 
 @interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYOfflinePlayBackManagerDelegate>
+- (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager playStateIsPlaying:(BOOL)isPlaying;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)offlinePlayBackManager:(DBYOfflinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
@@ -809,8 +839,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 
 
 
-
-
 @interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -822,6 +850,8 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 @class DBYOnlinePlayBackManager;
 
 @interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYOnlinePlayBackManagerDelegate>
+- (void)playBackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager onlineWithuserId:(NSString * _Null_unspecified)uid nickName:(NSString * _Null_unspecified)nickName userRole:(int32_t)role;
+- (void)playBackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count;
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager playStateChange:(BOOL)isPlaying;
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
 - (void)playBackManagerChatMessageShouldClear:(DBYOnlinePlayBackManager * _Null_unspecified)manager;

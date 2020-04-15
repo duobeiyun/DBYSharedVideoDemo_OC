@@ -11,7 +11,6 @@
 #endif
 
 #import "DBYSDK.h"
-#import "DBYSDK_dylib.h"
 #import "DBYMedia.h"
 #import "DBYAuthInfo.h"
 #import "DBYChatEventInfo.h"
@@ -30,6 +29,7 @@
 #import "DBYDownloadManager.h"
 #import "DBYDownloadTaskManager.h"
 #import "DBYFileUtil.h"
+#import "DBYMD5.h"
 #import "DBYRequestUtil.h"
 #import "DBYUrlConfig.h"
 #import "DBYView.h"
