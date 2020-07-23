@@ -18,6 +18,7 @@
 #import "DBYDownloadModel.h"
 #import "DBYDownloadObject.h"
 #import "DBYEnumerates.h"
+#import "DBYInteractionModel.h"
 #import "DBYLessonItem.h"
 #import "DBYStreamType.h"
 #import "DBYLiveManager.h"

@@ -199,19 +199,28 @@ typedef NS_ENUM(NSUInteger, DBYContentType) {
 typedef NS_ENUM(NSUInteger, DBYMessageType) {
     DBYMessageTypeUnknow,
     DBYMessageTypeAudioInvite,
+    DBYMessageTypeAudioRequest,
     DBYMessageTypeAudioInviteTimeout,
     DBYMessageTypeAudioInviteEnd,
     DBYMessageTypeAudioKickedOut,
     DBYMessageTypeAudioOnline,
     DBYMessageTypeAudioOffline,
     DBYMessageTypeVideoOnline,
+    DBYMessageTypeVideoInvite,
+    DBYMessageTypeVideoRequest,
     DBYMessageTypeVideoOffline,
 };
 
-typedef NS_ENUM(NSUInteger, DBYCameraState) {
-    DBYCameraStateNormal,
-    DBYCameraStateInvite,
-    DBYCameraStateJoined
+typedef NS_ENUM(NSUInteger, DBYInteractionState) {
+    DBYInteractionStateNormal,  //默认状态
+    DBYInteractionStateInqueue, //请求上台或上麦
+    DBYInteractionStateAbort,   //取消请求上台或上麦
+    DBYInteractionStateQuit,    //退出上台或上麦
+    DBYInteractionStateJoined   //上台或上麦中
 };
 
+typedef NS_ENUM(NSUInteger, DBYInteractionType) {
+    DBYInteractionTypeAudio,    //音频
+    DBYInteractionTypeVideo     //视频
+};
 #endif /* DBYEnumerates_h */

@@ -39,11 +39,11 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 注意：需要在进入教室之前使用
 
 ### 直播文档
-[直播文档](./live.md)
+[直播文档](./docs/live.md)
 ### 在线回放文档
-[在线回放文档](./onlinePlayback.md)
+[在线回放文档](./docs/onlinePlayback.md)
 ### 离线回放文档
-[离线回放文档](./offlinePlayback.md)
+[离线回放文档](./docs/offlinePlayback.md)
 
 ## FAQ
 

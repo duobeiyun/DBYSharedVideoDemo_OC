@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "DBYStreamType.h"
 #import "DBYEnumerates.h"
+#import "DBYInteractionModel.h"
 
 typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErrorType type);
 
@@ -29,15 +30,10 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
 @property (nonatomic, copy) NSString *printContent;
 ///水印位置变换时间间隔
 @property (nonatomic, assign) NSTimeInterval positionChangeTime;
-///老师、助教、学生聊天数组，与hasNewChatMessageWithChatArray中的数量一致
-@property (nonatomic, strong) NSMutableArray<NSDictionary *> *chatDictArray DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
-///老师和助教聊天数组，与teacherHasNewChatMessageWithChatArray中的数量一致
-@property (nonatomic, strong) NSMutableArray<NSDictionary *> *teacherChatDictArray DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
+///代理
 @property (nonatomic, weak) id<DBYLiveManagerDelegate> delegate;
-///教室类型
-@property (nonatomic, assign) DBYLiveManagerClassRoomType classRoomType DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
-///是否使用测试环境，调试专用
-@property (nonatomic, assign) BOOL isDev DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
+///助教的id，如果有助教上线
+@property (nonatomic, copy) NSString *assitantId;
 
 #pragma mark - life cycle
 
@@ -135,7 +131,6 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
 ///设置学生视频显示区域
 - (void)setStudentViewWith:(UIView *)studentView;
 
-
 ///设置老师视频显示区域（视频课可用）
 - (void)setTeacherViewWith:(UIView *)teacherView;
 
@@ -160,16 +155,6 @@ typedef void (^LiveStartPlayBlock)(NSString *message, DBYLiveManagerEnterRoomErr
 #pragma mark - 获取用户信息
 - (void)getUserInfo:(NSString *)userId compeletion:(void(^)(NSDictionary *userInfo))compeletion;
 #pragma mark - 上台、上麦相关方法
-///同意打开麦克风
-- (void)acceptToOpenMicrophone:(void(^)(BOOL finished))completion;
-///拒绝打开麦克风
-- (void)refuseToOpenMicrophone:(void(^)(BOOL finished))completion;
-///关闭麦克风
-- (void)closeMicrophone;
-///请求上台
-- (void)requestToOpenCamera;
-///请求下台
-- (void)requestToCloseCamera;
 ///开、关麦克风
 ///@param isOpen YES打开摄像头 NO关闭
 - (void)openMic:(BOOL)isOpen
@@ -201,6 +186,11 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
  */
 - (void)setReceiveVideoWith:(BOOL)isReceiveVideo
             completeHandler:(void (^)(NSString *failMsg))completeHandler;
+#pragma mark - 新版大班互动消息
+- (void)getInteractionList:(DBYInteractionType)type completion:(void(^)(NSArray<DBYInteractionModel *> *list))completion;
+- (void)requestInteraction:(DBYInteractionType)type state:(DBYInteractionState)state completion:(void(^)(BOOL result))completion;
+- (void)acceptInteraction:(DBYInteractionType)type completion:(void(^)(BOOL result))completion;
+#pragma mark -
 #pragma mark - 消息发送
 
 /**
@@ -243,12 +233,11 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
 
 - (void)sendVoteWithOptionIndex:(NSInteger)index
                 completeHandler:(void (^)(NSString *errorMsg))completeHandler;
-- (void)thumbsupWithCount:(int)count completeHandler:(void (^)(NSString *errorMsg))completeHandler;
+- (void)thumbsupWithCount:(int)count completion:(void (^)(NSString *errorMsg))completion;
 #pragma mark - utils
 
 ///错误代码对应的提示
 + (NSString *)enterRoomErrorMessageWithErrorType:(DBYLiveManagerEnterRoomErrorType)errorType;
-
 #pragma mark - test
 
 - (void)sendPPTDrawCleanWithCompleteHandler:(void (^)(NSString *errorMsg))completeHandler;
@@ -420,23 +409,6 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
  如果使用自己维护的数组来管理聊天，则需要在这个方法中清空相应数组，避免后续回调聊天数据导致聊天重复
  */
 - (void)liveManagerTeacherChatMessageShouldClear:(DBYLiveManager *)manager;
-
-/**
- 有聊天时调用 返回收到的消息
- 这个数组是sdk自己维护的数组，最多有30条，超过30条会将之前的聊天移除
- @param chatDictArray 收到的消息的数组
- */
-- (void)liveManager:(DBYLiveManager *)manager
-hasChatMessageWithChatArray:(NSArray *)chatDictArray
-DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
-/**
- 有聊天时调用 返回收到老师助教消息
- 这个数组是sdk自己维护的数组，最多有30条，超过30条会将之前的聊天移除
- @param chatDictArray 收到的老师助教消息的数组
- */
-- (void)liveManager:(DBYLiveManager *)manager
-teacherHasChatMessageWithChatArray:(NSArray *)chatDictArray
-DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
 ///发送聊天失败时调用
 - (void)liveManagerSendChatFail:(DBYLiveManager *)manager;
 ///发送聊天超出限制长度时调用
@@ -449,12 +421,8 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
 ///ppt翻页时调用，回调页数
 - (void)liveManager:(DBYLiveManager *)manager pptChangeAtPageIndex:(int)pageIndex;
 #pragma mark - 新版大班
-- (void)liveManager:(DBYLiveManager *)manager receivedQuestions:(NSArray<NSDictionary *> *)array;
 - (void)liveManager:(DBYLiveManager *)manager receivedQuestion:(NSDictionary *)dict;
 - (void)liveManager:(DBYLiveManager *)manager removedQuestion:(NSString *)questionId;
-- (void)liveManager:(DBYLiveManager *)manager
-    receivedMessage:(DBYMessageType)type
-       withUserInfo:(NSDictionary<NSString *, NSString *> *)userInfo;
 
 /**
  教师给麦或收麦时调用
@@ -474,12 +442,11 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
  老师请求学生开启摄像头（仅限1vN）
  */
 - (void)liveManagerTeacherAskStudentOpenCamera:(DBYLiveManager *)manager;
-///等待上视频人员的序号
-- (void)liveManager:(DBYLiveManager *)manager cameraRequestIndex:(NSUInteger)index;
-///上视频状态变化，进教室的时候触发
-- (void)liveManager:(DBYLiveManager *)manager cameraStateChange:(DBYCameraState)state;
 ///点赞
 - (void)liveManager:(DBYLiveManager *)manager thumbupWithCount:(NSInteger)count userName:(NSString *)userName;
+///互动状态变化，需要执行上台（openCam）或上麦（openMic）的操作
+- (void)liveManager:(DBYLiveManager *)manager interActionListChange:(NSArray<DBYInteractionModel *> *)list type:(DBYInteractionType)type;
+#pragma mark -
 #pragma mark - 答题相关方法
 
 /**

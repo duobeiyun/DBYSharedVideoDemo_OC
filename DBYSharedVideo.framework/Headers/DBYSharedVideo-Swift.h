@@ -218,15 +218,10 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)viewDidLoad;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIScrollView;
-
-@interface DBY1VNController (SWIFT_EXTENSION(DBYSharedVideo)) <UIScrollViewDelegate>
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
 
 
@@ -255,9 +250,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBYGlobalMessage")
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 @interface DBYLiveController : DBY1VNController
 - (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -280,15 +272,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 
 
 
-@class UITableView;
-@class UITableViewCell;
-
-@interface DBYLiveController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 
 
@@ -297,8 +280,10 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 
 @class DBYLiveManager;
 @class UIView;
+@class DBYInteractionModel;
 
 @interface DBYLiveController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYLiveManagerDelegate>
+- (void)clientOnline:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid nickName:(NSString * _Null_unspecified)nickName userRole:(int32_t)role;
 - (void)liveManagerClassOver:(DBYLiveManager * _Null_unspecified)manager;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
 - (void)liveManagerChatMessageShouldClear:(DBYLiveManager * _Null_unspecified)manager;
@@ -316,16 +301,13 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)liveManagerDidKickedOff:(DBYLiveManager * _Null_unspecified)manager;
 - (void)liveManagerTeacherAskStudentOpenCamera:(DBYLiveManager * _Null_unspecified)manager;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedMessage:(DBYMessageType)type withUserInfo:(NSDictionary<NSString *, NSString *> * _Null_unspecified)userInfo;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager denyChatStatusChange:(BOOL)isDeny;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager canChat:(BOOL)canChat;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestions:(NSArray<NSDictionary *> * _Null_unspecified)array;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestion:(NSDictionary * _Null_unspecified)dict;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager removedQuestion:(NSString * _Null_unspecified)questionId;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraRequestIndex:(NSUInteger)index;
 - (void)initVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid SWIFT_METHOD_FAMILY(none);
 - (void)destroyVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraStateChange:(DBYCameraState)state;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager interActionListChange:(NSArray<DBYInteractionModel *> * _Null_unspecified)list type:(DBYInteractionType)type;
 - (void)willReceivedVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
 - (void)willInterruptVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count userName:(NSString * _Null_unspecified)userName;
@@ -357,13 +339,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 
 
 
-@interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 @class DBYOfflinePlayBackManager;
 
@@ -392,13 +367,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 
 
 
-@interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 @class DBYOnlinePlayBackManager;
 
@@ -414,12 +382,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 @end
 
-typedef SWIFT_ENUM(NSInteger, DBYPlayState, closed) {
-  DBYPlayStatePlay = 0,
-  DBYPlayStatePause = 1,
-  DBYPlayStateEnd = 2,
-};
-
 
 
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYViewController")
@@ -430,6 +392,12 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYViewController")
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
+
+
+
+
 
 
 
@@ -665,15 +633,10 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBY1VNController")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 - (void)viewDidLoad;
+- (void)viewWillLayoutSubviews;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIScrollView;
-
-@interface DBY1VNController (SWIFT_EXTENSION(DBYSharedVideo)) <UIScrollViewDelegate>
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 @end
 
 
@@ -702,9 +665,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo16DBYGlobalMessage")
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 @interface DBYLiveController : DBY1VNController
 - (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
-- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -727,15 +687,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 
 
 
-@class UITableView;
-@class UITableViewCell;
-
-@interface DBYLiveController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
 
 
 
@@ -744,8 +695,10 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 
 @class DBYLiveManager;
 @class UIView;
+@class DBYInteractionModel;
 
 @interface DBYLiveController (SWIFT_EXTENSION(DBYSharedVideo)) <DBYLiveManagerDelegate>
+- (void)clientOnline:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid nickName:(NSString * _Null_unspecified)nickName userRole:(int32_t)role;
 - (void)liveManagerClassOver:(DBYLiveManager * _Null_unspecified)manager;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager hasNewChatMessageWithChatArray:(NSArray * _Null_unspecified)newChatDictArray;
 - (void)liveManagerChatMessageShouldClear:(DBYLiveManager * _Null_unspecified)manager;
@@ -763,16 +716,13 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYLiveController")
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 - (void)liveManagerDidKickedOff:(DBYLiveManager * _Null_unspecified)manager;
 - (void)liveManagerTeacherAskStudentOpenCamera:(DBYLiveManager * _Null_unspecified)manager;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedMessage:(DBYMessageType)type withUserInfo:(NSDictionary<NSString *, NSString *> * _Null_unspecified)userInfo;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager denyChatStatusChange:(BOOL)isDeny;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager canChat:(BOOL)canChat;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestions:(NSArray<NSDictionary *> * _Null_unspecified)array;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager receivedQuestion:(NSDictionary * _Null_unspecified)dict;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager removedQuestion:(NSString * _Null_unspecified)questionId;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraRequestIndex:(NSUInteger)index;
 - (void)initVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid SWIFT_METHOD_FAMILY(none);
 - (void)destroyVideoRecorder:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
-- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager cameraStateChange:(DBYCameraState)state;
+- (void)liveManager:(DBYLiveManager * _Null_unspecified)manager interActionListChange:(NSArray<DBYInteractionModel *> * _Null_unspecified)list type:(DBYInteractionType)type;
 - (void)willReceivedVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
 - (void)willInterruptVideoData:(DBYLiveManager * _Null_unspecified)liveManager userId:(NSString * _Null_unspecified)uid;
 - (void)liveManager:(DBYLiveManager * _Null_unspecified)manager thumbupWithCount:(NSInteger)count userName:(NSString * _Null_unspecified)userName;
@@ -804,13 +754,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo20DBYOfflineController")
 
 
 
-@interface DBYOfflineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 @class DBYOfflinePlayBackManager;
 
@@ -839,13 +782,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 
 
 
-@interface DBYOnlineController (SWIFT_EXTENSION(DBYSharedVideo)) <UITableViewDataSource, UITableViewDelegate>
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 @class DBYOnlinePlayBackManager;
 
@@ -861,12 +797,6 @@ SWIFT_CLASS("_TtC14DBYSharedVideo19DBYOnlineController")
 - (void)playbackManager:(DBYOnlinePlayBackManager * _Null_unspecified)manager hasVideo:(BOOL)hasVideo inView:(UIView * _Null_unspecified)view;
 @end
 
-typedef SWIFT_ENUM(NSInteger, DBYPlayState, closed) {
-  DBYPlayStatePlay = 0,
-  DBYPlayStatePause = 1,
-  DBYPlayStateEnd = 2,
-};
-
 
 
 SWIFT_CLASS("_TtC14DBYSharedVideo17DBYViewController")
@@ -877,6 +807,12 @@ SWIFT_CLASS("_TtC14DBYSharedVideo17DBYViewController")
 - (void)viewDidLoad;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
+
+
+
+
+
+
 
 
 

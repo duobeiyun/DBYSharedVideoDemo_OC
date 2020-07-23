@@ -23,4 +23,8 @@
 @property(nonatomic,assign) int role;
 //聊天内容
 @property(nonatomic,copy) NSString *message;
+
+-(id)initWithDic:(NSDictionary *)dict;
+- (NSDictionary *)jsonObject;
+
 @end
