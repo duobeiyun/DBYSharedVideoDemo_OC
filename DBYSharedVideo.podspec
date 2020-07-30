@@ -22,5 +22,6 @@ DBYSharedVideo主要是封装了直播和回放的界面，方便开发者快速
   s.author       = { "zhongfan" => "fan.zhong@duobei.com" }
   s.source       = { :git => "https://github.com/zhonglaoban/DBYSharedVideo.git", :tag => "#{s.version}" }
   s.vendored_frameworks  = "DBYSharedVideo.framework"
-
+  s.dependency 'SDWebImage', '~> 5.3.3'
+  s.dependency 'SnapKit'
 end

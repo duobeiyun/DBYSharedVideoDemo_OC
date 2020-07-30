@@ -18,4 +18,5 @@ target 'DBYSharedVideoDemo' do
     common_pods
     
     pod 'SDWebImage', '~> 5.3.3'
+    pod 'SnapKit'
 end
