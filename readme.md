@@ -38,6 +38,91 @@ pod 'DBYSharedVideo', :path => './DBYSharedVideo.podspec'
 ```
 注意：需要在进入教室之前使用
 
+### 1v1直播场景
+```objc
+- (void)clientOnline:(DBYLiveManager *)liveManager userId:(NSString *)uid nickName:(NSString *)nickName userRole:(int)role {
+    if (![uid isEqualToString:self.userId]) {
+        return;
+    }
+    //1v1场景需要在上线后开启摄像头，或者根据自己业务需求来
+    [liveManager openMic:YES completeHandler:^(NSString *failMsg) {
+        NSLog(@"openMic:%@", failMsg);
+    }];
+    [liveManager openCam:YES completeHandler:^(NSString *failMsg) {
+        NSLog(@"openCam:%@", failMsg);
+    }];
+}
+```
+### url进教室
+
+swift
+```swift
+let urlVC = DBYUrlController()
+urlVC.urlString = "https://api.duobeiyun.com/api/v4/room/authinfo..."
+urlVC.view.backgroundColor = UIColor.white
+navigationController?.pushViewController(urlVC, animated: true)
+```
+objectivec
+```objectivec
+DBYUrlController *urlVC = [[DBYUrlController alloc] init]; 
+urlVC.urlString = @"https://api.duobeiyun.com/api/v4/room/authinfo...";
+urlVC.view.backgroundColor = UIColor.whiteColor
+[self.navigationController pushViewController:urlVC animated:NO];
+```
+### 邀请码进教室
+
+swift
+```swift
+let inviteVC = DBYInviteCodeController()
+navigationController?.pushViewController(inviteVC, animated: true)
+```
+objectivec
+```objectivec
+let inviteVC = DBYInviteCodeController()
+navigationController?.pushViewController(inviteVC, animated: true)
+DBYInviteCodeController *inviteVC = [[DBYInviteCodeController alloc] init];
+[self.navigationController pushViewController:inviteVC animated:NO];
+```
+
+### 离线缓存课程
+
+离线缓存课程需要根据roomid获取下载链接，下载zip文件后，解压缩至app沙盒，播放时将课程文件夹路径、播放解密秘钥、课程对应的roomid传入离线回放控制器中，即可播放。
+
+获取链接
+swift
+```swift
+let downloadurl = DBYClient.lessonDownloadUrl(withRoomId: roomID, hasVideo: false)
+```
+objectivec
+```objectivec
+NSString *url = [DBYClient lessonDownloadUrlWithRoomId:cell.roomID hasVideo:NO];
+```
+
+下载并解压缩之后，创建离线回放控制器，并设置相关参数
+
+swift
+```swift
+let vc = DBYOfflineController()
+//设置播放课程的roomID
+vc.roomID = roomID
+//本地下载并解压缩后的课程路径
+vc.classFilePath = path
+//离线缓存解密秘钥
+vc.offlineKey = offlineKey
+navigationController?.pushViewController(vc, animated: true)
+```
+objectivec
+```objectivec
+DBYOfflineController*vc = [[DBYOfflineController alloc] init];
+//设置播放课程的roomID
+vc.roomID = roomID;
+//本地下载并解压缩后的课程路径
+vc.classFilePath = path;
+//离线缓存解密秘钥
+vc.offlineKey = offlineKey;
+[self.navigationController pushViewController:vc animated:YES];
+```
+
 ### 直播文档
 [直播文档](./docs/live.md)
 ### 在线回放文档

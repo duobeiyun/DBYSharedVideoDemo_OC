@@ -155,12 +155,12 @@
 oc数据结构如下：
 ```objc
 @{ 
-       @"userName" : "nickName",
-       @"message" : "message",
-       @"isOwner" : @(YES),
-       @"time" : "Tue Jan 14 15:51:42 2020",//NSDate
-       @"uid" : "userId",
-       @"role" : @(2)
+    @"userName" : "nickName",
+    @"message" : "message",
+    @"isOwner" : @(YES),
+    @"time" : "Tue Jan 14 15:51:42 2020",//NSDate
+    @"uid" : "userId",
+    @"role" : @(2)
 }
 ```
 
@@ -288,9 +288,9 @@ typedef enum : NSUInteger {
 userInfo结构如下:
 ```objc
 @{
-       @"userName" : "nickName",
-       @"userRole" : @(2),
-       @"uid" : "userId"
+    @"userName" : "nickName",
+    @"userRole" : @(2),
+    @"uid" : "userId"
 };
 ```
 
@@ -345,9 +345,9 @@ userInfo结构如下:
 userInfo结构如下:
 ```objc
 @{
-       @"userName" : "nickName",
-       @"userRole" : @(2),
-       @"uid" : "userId"
+    @"userName" : "nickName",
+    @"userRole" : @(2),
+    @"uid" : "userId"
 };
 ```
 
