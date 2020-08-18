@@ -1,12 +1,12 @@
 PODS:
-  - Bugly (2.5.0)
+  - Bugly (2.5.71)
   - DBYSDK_dylib (2.0.0)
   - DBYSharedVideo (2.0.0):
     - SDWebImage (~> 5.3.3)
     - SnapKit
-  - SDWebImage (5.3.3):
-    - SDWebImage/Core (= 5.3.3)
-  - SDWebImage/Core (5.3.3)
+  - SDWebImage (5.3.4):
+    - SDWebImage/Core (= 5.3.4)
+  - SDWebImage/Core (5.3.4)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
@@ -29,10 +29,10 @@ EXTERNAL SOURCES:
     :path: "./DBYSharedVideo.podspec"
 
 SPEC CHECKSUMS:
-  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   DBYSDK_dylib: 25838f1b75583d068ff93f2bac671135a5add0a3
   DBYSharedVideo: 6ccc660d6c077d80552bcfca9e5aeb517f81d8ef
-  SDWebImage: 51ab1ce3ebd20dec6665ae8ba25c928da323db41
+  SDWebImage: 295132e4da61a55c3cfd811a6dabf5d49d427706
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: 70aadf1ada8180b41b3e3e32905bf731aff5b102
