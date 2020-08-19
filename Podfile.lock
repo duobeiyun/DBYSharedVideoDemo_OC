@@ -13,7 +13,7 @@ DEPENDENCIES:
   - Bugly
   - DBYSDK_dylib (from `./DBYSDK_dylib.podspec`)
   - DBYSharedVideo (from `./DBYSharedVideo.podspec`)
-  - SDWebImage (~> 5.3.3)
+  - SDWebImage
   - SnapKit
 
 SPEC REPOS:
@@ -35,6 +35,6 @@ SPEC CHECKSUMS:
   SDWebImage: 295132e4da61a55c3cfd811a6dabf5d49d427706
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 70aadf1ada8180b41b3e3e32905bf731aff5b102
+PODFILE CHECKSUM: 7708843a4c9e79cc5c5dc9250821bd4f587b939d
 
 COCOAPODS: 1.9.1

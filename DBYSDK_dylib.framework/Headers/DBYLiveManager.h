@@ -190,7 +190,7 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
 - (void)getInteractionList:(DBYInteractionType)type completion:(void(^)(NSArray<DBYInteractionModel *> *list))completion;
 - (void)requestInteraction:(DBYInteractionType)type state:(DBYInteractionState)state completion:(void(^)(BOOL result))completion;
 - (void)acceptInteraction:(DBYInteractionType)type completion:(void(^)(BOOL result))completion;
-#pragma mark -
+
 #pragma mark - 消息发送
 
 /**
