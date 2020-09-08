@@ -63,11 +63,6 @@ typedef void (^OnlineStartPlayBlock)(NSString *message, DBYOnlinePlayBackManager
 @property (nonatomic, weak) id<DBYOnlinePlayBackManagerDelegate> delegate;
 //是否在播放
 @property (nonatomic, assign, readonly) BOOL isPlaying;
-@property (nonatomic, assign, readonly) BOOL isRendering DEPRECATED_MSG_ATTRIBUTE("已经废弃，下个版本移除");
-@property (nonatomic, assign, readonly) BOOL hasPause DEPRECATED_MSG_ATTRIBUTE("这个属性将要废弃，建议使用isPlaying");
-//聊天数组
-@property (nonatomic, strong) NSMutableArray<NSDictionary *> *chatDictArray DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
-@property (nonatomic, strong) NSMutableArray<NSDictionary *> *teacherChatDictArray DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
 //总时间（秒）
 @property (nonatomic, assign) NSTimeInterval totalTime;
 @property (nonatomic, assign) NSTimeInterval lessonStartTime;
@@ -246,13 +241,7 @@ DEPRECATED_MSG_ATTRIBUTE("这个接口将要废弃，建议使用startPlaybackWi
 //重复登录时调用 （提示被踢）
 - (void)playBackManagerDidDuplicateLogin:(DBYOnlinePlayBackManager *)manager;
 #pragma mark - 聊天相关
-/**
- 有聊天时调用 返回收到的消息
- 这个数组是sdk自己维护的数组，最多有30条，超过30条会将之前的聊天移除
- @param chatDictArray 收到的消息的数组
- */
-- (void)playbackManager:(DBYOnlinePlayBackManager *)manager hasChatMessageWithChatArray:(NSArray *)chatDictArray
-DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
+
 /**
  有聊天时调用 返回当前时间的消息数组
  可以在上层viewcontroller用一个数组存起来作为聊天列表的数据源，自己管理。
@@ -264,13 +253,6 @@ DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
  如果使用自己维护的数组来管理聊天，则需要在这个方法中清空相应数组，避免后续回调聊天数据导致聊天重复
  */
 - (void)playBackManagerChatMessageShouldClear:(DBYOnlinePlayBackManager *)manager;
-/**
- 有聊天时调用 返回收到老师助教的消息
- 这个数组是sdk自己维护的数组，最多有30条，超过30条会将之前的聊天移除
- @param teacherChatDictArray 收到的老师助教消息的数组
- */
-- (void)playbackManager:(DBYOnlinePlayBackManager *)manager hasTeacherChatMessageWithChatArray:(NSArray *)teacherChatDictArray
-DEPRECATED_MSG_ATTRIBUTE("下个版本将移除");
 
 /**
  有聊天时调用 返回当前时间的老师助教消息数组

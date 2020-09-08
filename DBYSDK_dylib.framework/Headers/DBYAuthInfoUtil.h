@@ -46,7 +46,7 @@ typedef void (^DBYAuthInfoResponseBlock)(NSString *authRoomID, NSString *jsonStr
 
 + (void)downloadPlaybackDatWithRoomID:(NSString *)roomID
                               baseUrl:(NSString *)baseUrl
-                       successHandler:(void (^)(NSString *datPath))successHandler
+                       successHandler:(void (^)(NSString *datPath, NSTimeInterval loadTime))successHandler
                           failHandler:(void (^)(NSError *error))failHandler;
 
 + (void)authInfoWithUrl:(NSString *)url
