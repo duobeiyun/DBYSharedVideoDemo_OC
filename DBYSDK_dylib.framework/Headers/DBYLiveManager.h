@@ -188,8 +188,10 @@ completeHandler:(void (^)(NSString *failMsg))completeHandler;
             completeHandler:(void (^)(NSString *failMsg))completeHandler;
 #pragma mark - 新版大班互动消息
 - (void)getInteractionList:(DBYInteractionType)type completion:(void(^)(NSArray<DBYInteractionModel *> *list))completion;
-- (void)requestInteraction:(DBYInteractionType)type state:(DBYInteractionState)state completion:(void(^)(BOOL result))completion;
-- (void)acceptInteraction:(DBYInteractionType)type completion:(void(^)(BOOL result))completion;
+- (void)sendInteraction:(DBYInteractionType)type state:(DBYInteractionState)state completion:(void(^)(BOOL result))completion;
+///下个版本废弃，使用sendInteraction:type:state:DBYInteractionStateJoined代替
+- (void)acceptInteraction:(DBYInteractionType)type completion:(void(^)(BOOL result))completion
+DEPRECATED_MSG_ATTRIBUTE("下个版本废弃，使用sendInteraction:type:state:DBYInteractionStateJoined代替");
 
 #pragma mark - 消息发送
 
